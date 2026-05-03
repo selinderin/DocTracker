@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <h2>📄 DocTracker</h2>
+    <div>
+        <a href="/add">Add</a>
+        <a href="/logout">Logout</a>
+    </div>
+</div>
+
+<div class="container">
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Expiry</th>
+        <th>Days Left</th>
+        <th>Actions</th>
+    </tr>
+
+    {% for doc in documents %}
+    <tr class="{{ get_status(doc.expiry_date) }}">
+        <td>{{ doc.name }}</td>
+        <td>{{ doc.expiry_date }}</td>
+        <td>{{ days_left(doc.expiry_date) }} days</td>
+        <td>
+            <a class="edit" href="/edit/{{ doc.id }}">Edit</a> |
+            <a class="delete" href="/delete/{{ doc.id }}">Delete</a>
+        </td>
+    </tr>
+    {% endfor %}
+</table>
+
+</div>
+
+</body>
+</html>

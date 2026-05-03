@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+
+<div class="form-container">
+<h2>Edit Document</h2>
+
+<form method="POST">
+    <input name="name" value="{{ doc.name }}" required>
+    <input type="date" name="expiry" value="{{ doc.expiry_date.strftime('%Y-%m-%d') }}" required>
+    <button type="submit">Update</button>
+</form>
+
+<a class="back-link" href="/">← Back</a>
+</div>
+
+</body>
+</html>
