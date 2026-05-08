@@ -40,9 +40,9 @@ def index():
 
     def get_status(expiry):
         days = (expiry - today).days
-        if days <= 3:
+        if days <= 14:
             return "red"
-        elif days <= 7:
+        elif days <= 20:
             return "yellow"
         else:
             return "green"
